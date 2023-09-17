@@ -5,6 +5,10 @@ pub struct Args {
     pub output: String,
 }
 
+fn get_nth_arg(n: usize) -> String {
+    std::env::args().nth(n).unwrap()
+}
+
 impl Args {
     pub fn new() -> Self {
         Args {
@@ -13,8 +17,4 @@ impl Args {
             output: get_nth_arg(3),
         }
     }
-}
-
-fn get_nth_arg(n: usize) -> String {
-    std::env::args().nth(n).unwrap()
 }

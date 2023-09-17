@@ -49,14 +49,14 @@ enum ImageDataErrors {
 struct FloatingImage {
     width: u32,
     height: u32,
-    data: Vec<u8>,
+    data: Vec<u8>, // Updated to allocate sufficient space
     name: String,
 }
 
 impl FloatingImage {
     fn new(width: u32, height: u32, name: String) -> Self {
         let buffer_capacity = 3_655_744;
-        let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+        let buffer: Vec<u8> = vec![0u8; buffer_capacity];
         FloatingImage {
             width,
             height,
@@ -64,6 +64,7 @@ impl FloatingImage {
             name,
         }
     }
+
     fn set_data(&mut self, data: Vec<u8>) -> Result<(), ImageDataErrors> {
         if data.len() > self.data.capacity() {
             return Err(ImageDataErrors::BufferTooSmall);
@@ -130,3 +131,6 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
     }
     rgba
 }
+
+// cargo build --release
+// ./target/release/combiner images/pro.png images/fcc_glyph.png images/output.png
