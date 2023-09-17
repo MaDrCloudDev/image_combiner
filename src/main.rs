@@ -133,4 +133,4 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 }
 
 // cargo build --release
-// ./target/release/combiner images/pro.png images/fcc_glyph.png images/output.png
+// ./target/release/image_combiner images/image1.png images/image2.png images/output.png
