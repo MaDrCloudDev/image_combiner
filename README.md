@@ -1,5 +1,7 @@
 # rust_image_combiner
 
+***NOTE: Images must be sufficiently small, or they'll excede the buffer size.***
+
 Build the program:
 ```
 cargo build --release
