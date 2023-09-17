@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Args {
     pub image_1: String,
     pub image_2: String,
