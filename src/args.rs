@@ -6,7 +6,7 @@ pub struct Args {
 }
 
 fn get_nth_arg(n: usize) -> String {
-    std::env::args().nth(n).unwrap()
+    std::env::args().nth(n).expect("Missing arguments")
 }
 
 impl Args {
